@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import iView from 'iview';
+import dayjs from 'dayjs';
 import 'iview/dist/styles/iview.css';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -12,7 +13,7 @@ import * as $http from './requests/index';
 
 Vue.use(ElementUI);
 Vue.use(iView);
-
+Vue.prototype.dayjs = dayjs;
 Vue.prototype.$http = $http
 Vue.prototype.api = "http://127.0.0.1:8000"
 Vue.config.productionTip = false

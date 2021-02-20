@@ -4,8 +4,9 @@
       <!-- <div class="layout-logo"></div> -->
       <div class="layout-operation">
         <MenuItem name="1">
-          <router-link to="/account/add/blog">
-            <Icon type="md-create" />&nbsp;&nbsp;写博客
+          <router-link to="/myadmin">
+            <!-- <Icon type="md-create" />&nbsp;&nbsp; -->
+            去后台
           </router-link>
         </MenuItem>
         <!-- <MenuItem v-if="auth" name="2"> <Icon type="md-mail" />消息 </MenuItem>
@@ -60,7 +61,7 @@
                 <Icon type="ios-paper-outline" />&nbsp;我的博客
               </DropdownItem>
             </router-link>
-            <router-link to="/account/profile">
+            <!-- <router-link to="/account/profile">
               <DropdownItem name="manage">
                 <Icon type="ios-options-outline" />&nbsp;管理博客
               </DropdownItem>
@@ -79,7 +80,7 @@
               <DropdownItem divided name="help">
                 <Icon type="ios-help-circle-outline" />&nbsp;帮助
               </DropdownItem>
-            </router-link>
+            </router-link> -->
             <router-link to="/account/login">
               <DropdownItem name="logout">
                 <Icon type="ios-log-out" />&nbsp;退出

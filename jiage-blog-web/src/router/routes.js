@@ -50,7 +50,6 @@ export default [
             default: Profile,
             header: Header,
             footer: Footer,
-
         },
         meta: { requireAuth: true }
     },
@@ -74,11 +73,11 @@ export default [
         }
     },
     {
-        path: "/account/mineblog",
+        path: "/myadmin",
         name: "Mineblog",
         components: {
             default: mineBlog,
-            header: Header,
+            // header: Header,
             footer: Footer
         }
     },

@@ -35,6 +35,20 @@ export const userLogin = (username, password, headers) => {
     })
 }
 
+export const tijiao = (headers) => {
+    return ajax({
+        url: '/update_order',
+        method: 'post',
+        responseType: 'json',
+        data: qs.stringify(),
+        headers: {
+            'X-CSRFToken': headers
+        }
+    })
+}
+
+
+
 // 用户注册
 export const userRegister = (email, username, password, headers) => {
     return ajax({
@@ -71,6 +85,21 @@ export const listOfBlog = () => {
     })
 }
 
+export const list = () => {
+    return ajax({
+        url: "/list/",
+        method: "get",
+        responseType: 'json'
+    })
+}
+export const weather = () => {
+    return ajax({
+        url: "http://wthrcdn.etouch.cn/weather_mini?city=" + this.city + "&" + "key=" + this.key,
+        method: "get",
+        responseType: 'json'
+    })
+}
+
 // 博客详情（get）
 export const getBlogDetails = (id) => {
     return ajax.get(`/api/blog/${id}`)
@@ -101,6 +130,9 @@ export const selfBlogList = (author, headers) => {
         }
     })
 }
+
+
+
 
 // 删除博客
 export const delBlog = (id, headers) => {

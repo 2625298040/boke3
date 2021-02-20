@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+ALIPAY_PUBLIC = os.path.join(BASE_DIR,'keys','alipay_public.txt')
+APP_PUBLIC = os.path.join(BASE_DIR,'keys','app_public.txt')
+APP_PRIVATE = os.path.join(BASE_DIR,'keys','app_private.txt')
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'pay',
     'users',
     'blogs',
     'corsheaders',
@@ -159,7 +161,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

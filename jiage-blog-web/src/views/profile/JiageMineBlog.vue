@@ -41,9 +41,13 @@
                 <span class="dight">{{ item.comment_count }}</span>
               </span>
               <span class="operation">
-                <span class="top">
-                  <a>置顶</a> </span
-                >&nbsp;&nbsp;|&nbsp;&nbsp;
+                <!-- <span class="top"> <a>置顶</a> </span> -->
+                <span>
+                  <router-link to="/account/add/blog"
+                    >添加博客</router-link
+                  ></span
+                >
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 <span class="edit">
                   <a @click="goEditPage(item.id)">编辑</a> </span
                 >&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -78,7 +82,7 @@ import JiageContent from "@/components/JiageContent";
 export default {
   data() {
     return {
-      title: "我的博客",
+      title: "后台",
       author: "",
       dataArr: [],
       modalDel: false,
@@ -152,6 +156,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.index {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .title {
   font-weight: 600;
   cursor: pointer;

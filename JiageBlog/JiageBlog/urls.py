@@ -1,4 +1,4 @@
-"""JiageBlog URL Configuration
+"""djangoProject2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.views.static import serve
 from django.conf import settings
 from users import views as user
 from blogs import views as blog
-
+from pay import views
+from pay import views as pay
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', user.index, name='index'),
@@ -36,8 +37,14 @@ urlpatterns = [
     path('api/blogSave', blog.edit_post_save, name='blogSave'),
     path('api/allCategory', blog.get_all_category, name='allCategory'),
     path('api/getChooseCategory', blog.get_choose_cate, name='getChooseCategory'),
-    url(r'^api/blog/(\d+)/$', blog.get_one_blog, name='oneBlog'),
+    url(r'^api/blog/(\d+)/$', blog.get_one_blog, name='one  Blog'),
     url(r'^api/edit/(\d+)/$', blog.edit_blog, name='editBlog'),
     url(r'^static/(?P<path>.*)/$', serve, {"document_root": settings.STATIC_ROOT}, name='static'),
     url(r'^media/(?P<path>.*)', serve, {"document_root": settings.MEDIA_ROOT}, name='media'),
+    url('result/', views.pay_result),  # 支付宝处理完成后回调的get请求路由
+    url('update_order/', views.update_order),  # 支付宝处理完成后回调的post请求路由
+    url('index/', views.index),
+    url('pay/', views.pay),
+    url(r'^',include('pay.urls'))
 ]
+

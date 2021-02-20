@@ -3,7 +3,10 @@
     <Layout>
       <Content :style="{ padding: '0 200px' }">
         <Breadcrumb :style="{ margin: '20px 0' }">
-          <BreadcrumbItem>{{ title }}</BreadcrumbItem>
+          <BreadcrumbItem>{{ title }} </BreadcrumbItem>
+          <BreadcrumbItem>
+            <router-link to="/index">首页</router-link></BreadcrumbItem
+          >
         </Breadcrumb>
         <slot name="main-content"></slot>
         <slot name="comment"></slot>

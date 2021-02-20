@@ -29,13 +29,28 @@
                 border: 1px solid red;
               "
             >
-              <h3
+              <!-- <h3
                 style="text-align: center"
                 class="title"
                 @click="goBlogDetailPage(item.id)"
               >
                 {{ item.title }}
+              </h3> -->
+
+              <h3
+                style="text-align: center"
+                class="title"
+                v-if="auth"
+                @click="goBlogDetailPage(item.id)"
+              >
+                {{ item.title }}
               </h3>
+
+              <router-link v-else to="/account/login">
+                <h3 style="text-align: center" class="title">
+                  {{ item.title }}
+                </h3></router-link
+              >
               <!-- <div class="info">
                 <p>
                   <i>
@@ -103,16 +118,43 @@ export default {
       dataArr: [],
       cateList: [],
       api: this.api,
+      auth: true,
+      list: [],
     };
   },
   created() {
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    if (user) {
+      this.username = user["username"];
+    } else {
+      this.auth = false;
+    }
+
     this.listOfBlog();
     this.listCategory();
+    this.pay();
   },
   components: {
     JiageContent,
   },
   methods: {
+    pay() {
+      this.$http.list().then((resp) => {
+        if (resp.result.code === "200") {
+          this.list = resp.result.list_one[0];
+          // console.log(this.list.money);
+          //    "list_one": [
+          //     {
+          //         "id": 1,
+          //         "money": "10.0",
+          //         "order_num": "x21613612337.8232715",
+          //         "create_time": "2021-01-19T01:38:57.826Z",
+          //         "status": 2
+          //     }
+          // ]
+        }
+      });
+    },
     listOfBlog() {
       var _this = this;
       _this.$http.listOfBlog().then((resp) => {
