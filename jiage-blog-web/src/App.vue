@@ -12,12 +12,12 @@ export default {
   name: "app",
   provide() {
     return {
-      reload: this.reload
+      reload: this.reload,
     };
   },
   data() {
     return {
-      isRouterAlive: true
+      isRouterAlive: true,
     };
   },
   methods: {
@@ -26,8 +26,8 @@ export default {
       this.$nextTick(() => {
         this.isRouterAlive = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

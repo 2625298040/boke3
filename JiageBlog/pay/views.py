@@ -24,7 +24,7 @@ def aliPay():
     #     app_notify_url=settings.NOTIFY_URL,
     #     return_url=settings.RETURN_URL,
     #     alipay_public_key_path=settings.PUB_KEY_PATH,
-    #     app_private_key_path=settings.PRI_KEY_PATH,
+    #     app_private_key_path=settings.PRI_KEY_PATH,   
     #     debug=True,
     # )
     return obj

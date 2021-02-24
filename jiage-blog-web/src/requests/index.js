@@ -35,19 +35,6 @@ export const userLogin = (username, password, headers) => {
     })
 }
 
-export const tijiao = (headers) => {
-    return ajax({
-        url: '/update_order',
-        method: 'post',
-        responseType: 'json',
-        data: qs.stringify(),
-        headers: {
-            'X-CSRFToken': headers
-        }
-    })
-}
-
-
 
 // 用户注册
 export const userRegister = (email, username, password, headers) => {
